@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Midterm – Student Portfolio</title>
+
+  <!-- PART IV: Hosting Links (comment) -->
+  <!-- GitHub Pages: https://yourusername.github.io/Midterm_LastName_FirstName/ -->
+  <!-- Neocities:    https://yourusername.neocities.org/ -->
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #1e1e2e;
+      color: #cdd6f4;
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #313244;
+      padding: 24px 20px;
+      text-align: center;
+      border-bottom: 4px solid #cba6f7;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      color: #cba6f7;
+    }
+
+    header p {
+      color: #a6adc8;
+      margin-top: 5px;
+      font-size: 0.95rem;
+    }
+
+    nav {
+      background-color: #181825;
+      padding: 10px 20px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav a {
+      color: #cba6f7;
+      text-decoration: none;
+      padding: 5px 14px;
+      border: 1px solid #cba6f7;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      transition: background 0.2s;
+    }
+
+    nav a:hover {
+      background-color: #cba6f7;
+      color: #1e1e2e;
+    }
+
+    /* === SINGLE COLUMN LAYOUT === */
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 860px;
+      margin: 24px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      background-color: #313244;
+      border-left: 5px solid #cba6f7;
+      border-radius: 8px;
+      padding: 22px 24px;
+    }
+
+    section h2 {
+      color: #cba6f7;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+    }
+
+    article {
+      background-color: #313244;
+      border-left: 5px solid #89b4fa;
+      border-radius: 8px;
+      padding: 22px 24px;
+    }
+
+    article h3 {
+      color: #89b4fa;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    article p {
+      color: #a6adc8;
+      font-size: 0.95rem;
+    }
+
+    aside {
+      background-color: #313244;
+      border-radius: 8px;
+      padding: 22px 24px;
+      border-top: 4px solid #a6e3a1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 30px;
+    }
+
+    aside h4 {
+      color: #a6e3a1;
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    aside ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    aside ul li {
+      padding: 5px 0;
+      border-bottom: 1px solid #45475a;
+      color: #a6adc8;
+      font-size: 0.88rem;
+    }
+
+    aside ul li::before {
+      content: "▸ ";
+      color: #cba6f7;
+    }
+
+    footer {
+      background-color: #181825;
+      border-top: 3px solid #cba6f7;
+      text-align: center;
+      padding: 18px;
+      color: #a6adc8;
+      font-size: 0.85rem;
+      margin-top: 10px;
+    }
+
+    footer span {
+      color: #cba6f7;
+    }
+
+    /* === CLASS SELECTORS === */
+    .btn {
+      background-color: #cba6f7;
+      color: #1e1e2e;
+      border: none;
+      padding: 9px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: bold;
+      margin: 6px 4px;
+      transition: opacity 0.2s;
+    }
+
+    .btn:hover {
+      opacity: 0.85;
+    }
+
+    .btn-green { background-color: #a6e3a1; }
+    .btn-red   { background-color: #f38ba8; }
+    .btn-gray  { background-color: #585b70; color: #cdd6f4; }
+
+    .output-box {
+      background-color: #181825;
+      border: 1px solid #45475a;
+      border-radius: 6px;
+      padding: 14px;
+      margin-top: 12px;
+      min-height: 46px;
+      font-size: 0.95rem;
+      color: #a6e3a1;
+      width: 100%;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 10px 14px;
+      background-color: #181825;
+      border: 1px solid #cba6f7;
+      border-radius: 6px;
+      color: #cdd6f4;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      outline: none;
+    }
+
+    .input-field:focus {
+      border-color: #89b4fa;
+    }
+
+    .label {
+      font-size: 0.75rem;
+      color: #cba6f7;
+      font-weight: bold;
+      letter-spacing: 1px;
+      display: inline-block;
+      background: #45475a;
+      padding: 2px 10px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    /* === ID SELECTORS === */
+    #about-output {
+      color: #cdd6f4;
+      line-height: 2;
+    }
+
+    #js-output {
+      color: #89b4fa;
+      line-height: 2;
+    }
+
+    #input-output {
+      color: #f9e2af;
+    }
+
+    #dynamic-box {
+      transition: all 0.4s ease;
+    }
+
+    #node-preview {
+      color: #a6e3a1;
+      font-size: 0.9rem;
+      white-space: pre;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <h1>💻 Student Web Portfolio</h1>
+  <p>Midterm Laboratory Examination — Web Development</p>
+</header>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="#about">About</a>
+  <a href="#js-section">JavaScript</a>
+  <a href="#input-section">User Input</a>
+  <a href="#event-section">Events</a>
+  <a href="#node-section">Node.js</a>
+</nav>
+
+<!-- MAIN LAYOUT - SINGLE COLUMN -->
+<main>
+
+  <!-- PART I: Section – About -->
+  <section id="about">
+    <span class="label">PART I — HTML5 + CSS</span>
+    <h2>About Me</h2>
+    <p id="about-output">Loading...</p>
+  </section>
+
+  <!-- PART I: Article -->
+  <article>
+    <h3>📖 My Web Development Journey</h3>
+    <p>
+      Web development combines creativity and logic. In this course, I have
+      learned to structure pages with HTML5, style them with CSS, and bring
+      them to life with JavaScript and Node.js.
+    </p>
+  </article>
+
+  <!-- PART II-A & B: Variables + Alert Button -->
+  <section id="js-section">
+    <span class="label">PART II — JAVASCRIPT A &amp; B</span>
+    <h2>Variables &amp; Button Function</h2>
+    <div class="output-box" id="js-output">Loading student info...</div>
+    <br>
+    <button class="btn" onclick="showAlert()">🔔 Click Me – Show Alert</button>
+  </section>
+
+  <!-- PART II-C: User Input -->
+  <section id="input-section">
+    <span class="label">PART II — C: USER INPUT</span>
+    <h2>Display Input Dynamically</h2>
+    <input
+      class="input-field"
+      type="text"
+      id="user-input"
+      placeholder="Type something here..."
+    />
+    <button class="btn" onclick="displayInput()">Display Input</button>
+    <div class="output-box" id="input-output">Your input will appear here.</div>
+  </section>
+
+  <!-- PART II-D: Event Handling -->
+  <section id="event-section">
+    <span class="label">PART II — D: EVENT HANDLING</span>
+    <h2>Change Content Dynamically</h2>
+    <div class="output-box" id="dynamic-box">
+      Click a button below to change this content dynamically!
+    </div>
+    <br>
+    <button class="btn btn-green" onclick="changeContent('success')">✅ Success</button>
+    <button class="btn btn-red"   onclick="changeContent('error')">❌ Error</button>
+    <button class="btn btn-gray"  onclick="changeContent('reset')">↺ Reset</button>
+  </section>
+
+  <!-- PART III: Node.js Preview -->
+  <section id="node-section">
+    <span class="label" style="background:#a6e3a1; color:#1e1e2e;">PART III — NODE.JS</span>
+    <h2>student.js Output Preview</h2>
+    <p style="color:#a6adc8; font-size:0.9rem; margin-bottom:10px;">
+      Run <code style="color:#cba6f7;">node student.js</code> in your terminal to see this output:
+    </p>
+    <div class="output-box">
+      <pre id="node-preview"></pre>
+    </div>
+  </section>
+
+  <!-- ASIDE – now full width below all sections -->
+  <aside>
+    <div>
+      <h4>📋 Student Info</h4>
+      <ul>
+        <li>Course: BSIT</li>
+        <li>Year: 3rd Year</li>
+        <li>Subject: Web Dev</li>
+        <li>Exam: Midterm Lab</li>
+        <li>Language: JavaScript</li>
+        <li>Runtime: Node.js</li>
+      </ul>
+    </div>
+    <div>
+      <h4>🔗 Hosted Links</h4>
+      <ul>
+        <li>
+          <a href="https://yourusername.github.io"
+             target="_blank" style="color:#89b4fa;">GitHub Pages ↗</a>
+        </li>
+        <li>
+          <a href="https://yourusername.neocities.org"
+             target="_blank" style="color:#89b4fa;">Neocities ↗</a>
+        </li>
+      </ul>
+    </div>
+  </aside>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <span>Dampil, Christian</span> — Web Development Midterm</p>
+</footer>
+
+
+<script>
+
+  // --- PART II-A: Variables ---
+  var studentName   = "Dampil, Christian";
+  var studentCourse = "BSIT";
+  var studentYear   = "3rd Year";
+  var favLang       = "JavaScript";
+
+  // Display on page load
+  document.getElementById("about-output").innerHTML =
+    "<strong>Name:</strong> "   + studentName   + "<br>" +
+    "<strong>Course:</strong> " + studentCourse + "<br>" +
+    "<strong>Year:</strong> "   + studentYear;
+
+  document.getElementById("js-output").innerHTML =
+    "👤 <strong>Name:</strong> "         + studentName   + "<br>" +
+    "🎓 <strong>Course:</strong> "       + studentCourse + "<br>" +
+    "📅 <strong>Year Level:</strong> "   + studentYear   + "<br>" +
+    "❤️ <strong>Fav Language:</strong> " + favLang;
+
+  document.getElementById("node-preview").textContent =
+    "============================\n" +
+    "    STUDENT INFORMATION     \n" +
+    "============================\n" +
+    "Name    : " + studentName   + "\n" +
+    "Course  : " + studentCourse + "\n" +
+    "Year    : " + studentYear   + "\n" +
+    "Fav Lang: " + favLang       + "\n" +
+    "============================";
+
+
+  // --- PART II-B: Alert Button ---
+  function showAlert() {
+    alert(
+      "Hello! 👋\n\n" +
+      "Name   : " + studentName + "\n" +
+      "Course : " + studentCourse + "\n\n" +
+      "Welcome to my Midterm Web Portfolio!"
+    );
+  }
+
+
+  // --- PART II-C: User Input ---
+  function displayInput() {
+    var userValue = document.getElementById("user-input").value.trim();
+    var outputEl  = document.getElementById("input-output");
+
+    if (userValue === "") {
+      outputEl.textContent = "⚠️ Please type something first!";
+      outputEl.style.color = "#f38ba8";
+    } else {
+      outputEl.textContent = "✅ You entered: " + userValue;
+      outputEl.style.color = "#f9e2af";
+    }
+  }
+
+  document.getElementById("user-input").addEventListener("keypress", function(e) {
+    if (e.key === "Enter") displayInput();
+  });
+
+
+  // --- PART II-D: Event Handling ---
+  function changeContent(state) {
+    var box = document.getElementById("dynamic-box");
+
+    if (state === "success") {
+      box.textContent      = "🎉 SUCCESS! Content changed dynamically via event handler.";
+      box.style.color      = "#a6e3a1";
+      box.style.background = "rgba(166,227,161,0.08)";
+      box.style.border     = "1px solid #a6e3a1";
+    } else if (state === "error") {
+      box.textContent      = "❌ ERROR state! JavaScript event handling is working.";
+      box.style.color      = "#f38ba8";
+      box.style.background = "rgba(243,139,168,0.08)";
+      box.style.border     = "1px solid #f38ba8";
+    } else {
+      box.textContent      = "↺ Content has been reset to its default state.";
+      box.style.color      = "#cdd6f4";
+      box.style.background = "#181825";
+      box.style.border     = "1px solid #45475a";
+    }
+  }
+
+  document.getElementById("dynamic-box").addEventListener("mouseover", function() {
+    this.style.cursor = "pointer";
+  });
+
+</script>
+</body>
+</html>
